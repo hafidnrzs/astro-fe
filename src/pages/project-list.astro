@@ -18,6 +18,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination';
+
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+
+import { Progress } from '@/components/ui/progress';
 ---
 
 <Layout title="Project List">
@@ -31,66 +35,68 @@ import {
     <!-- Card 1 -->
     <Card>
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <!-- <AspectRatio ratio={16 / 9}>
+          <div class="bg-slate-500"></div>
+        </AspectRatio> -->
+        <CardDescription>Nama Business Creator</CardDescription>
+        <CardTitle>Judul Project</CardTitle>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <Progress value={33} />
+        <p>Terkumpul 33%</p>
       </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
-      </CardFooter>
+      <!-- <CardFooter>
+      </CardFooter> -->
     </Card>
     <!--/ Card 1 -->
     <!-- Card 2 -->
     <Card>
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardDescription>Nama Business Creator</CardDescription>
+        <CardTitle>Judul Project</CardTitle>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <Progress value={33} />
+        <p>Terkumpul 33%</p>
       </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
-      </CardFooter>
     </Card>
     <!--/ Card 2 -->
     <!-- Card 3 -->
     <Card>
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardDescription>Nama Business Creator</CardDescription>
+        <CardTitle>Judul Project</CardTitle>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <Progress value={33} />
+        <p>Terkumpul 33%</p>
       </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
-      </CardFooter>
     </Card>
     <!--/ Card 3 -->
+
+    <!--/ Grid layout -->
+    <!-- Pagination -->
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive>1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#"> 2 </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+    <!--/ Pagination -->
+    <!-- Drawer example -->
+    <!--/ Drawer example -->
   </div>
-  <!--/ Grid layout -->
-  <!-- Pagination -->
-  <Pagination>
-    <PaginationContent>
-      <PaginationItem>
-        <PaginationPrevious href="#" />
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#" isActive>1</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#"> 2 </PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationEllipsis />
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationNext href="#" />
-      </PaginationItem>
-    </PaginationContent>
-  </Pagination>
-  <!--/ Pagination -->
 </Layout>
