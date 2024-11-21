@@ -1,18 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Input } from '@/components/ui/input';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Progress } from '@/components/ui/progress';
 import ProjectPagination from '@/components/ProjectPagination.astro';
 import { SearchForm } from '@/components/ui/search-form';
+import ProjectCard from '@/components/ProjectCard.astro';
 ---
 
 <Layout title="Project List">
@@ -30,82 +22,31 @@ import { SearchForm } from '@/components/ui/search-form';
     class="py-4 mx-auto max-w-sm md:container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
   >
     <!-- Card 1 -->
-    <div class="mb-2 md:p-6">
-      <div class="flex flex-col space-y-1.5 mb-4">
-        <AspectRatio ratio={16 / 9}>
-          <img
-            src="https://placehold.co/500x281"
-            alt="Image"
-            class="rounded-md object-cover hover:cursor-pointer"
-          />
-        </AspectRatio>
-        <div class="text-sm text-muted-foreground">Nama Business Creator</div>
-        <p
-          class="font-semibold leading-none tracking-tight hover:underline hover:underline-offset-2 hover:cursor-pointer"
-        >
-          Judul Project
-        </p>
-      </div>
-      <div class="space-y-1.5">
-        <Progress value={33} />
-        <div class="flex justify-between">
-          <p>Terkumpul 33%</p>
-          <p>Rp157.058.000</p>
-        </div>
-      </div>
-    </div>
+    <ProjectCard
+      progressValue={33}
+      collectedAmount="Rp157.058.000"
+      projectTitle="Judul Project 1"
+      businessOwnerName="Nama Business Creator"
+      imagePlaceholder="https://placehold.co/500x281"
+    />
     <!--/ Card 1 -->
     <!-- Card 2 -->
-    <div class="mb-2 md:p-6">
-      <div class="flex flex-col space-y-1.5 mb-4">
-        <AspectRatio ratio={16 / 9}>
-          <img
-            src="https://placehold.co/500x281"
-            alt="Image"
-            class="rounded-md object-cover hover:cursor-pointer"
-          />
-        </AspectRatio>
-        <div class="text-sm text-muted-foreground">Nama Business Creator</div>
-        <p
-          class="font-semibold leading-none tracking-tight hover:underline hover:underline-offset-2 hover:cursor-pointer"
-        >
-          Judul Project
-        </p>
-      </div>
-      <div class="space-y-1.5">
-        <Progress value={33} />
-        <div class="flex justify-between">
-          <p>Terkumpul 33%</p>
-          <p>Rp157.058.000</p>
-        </div>
-      </div>
-    </div>
+    <ProjectCard
+      progressValue={50}
+      collectedAmount="Rp250.000.000"
+      projectTitle="Judul Project 2"
+      businessOwnerName="Nama Business Creator"
+      imagePlaceholder="https://placehold.co/500x281"
+    />
     <!--/ Card 2 -->
     <!-- Card 3 -->
-    <div class="mb-2 md:p-6">
-      <div class="flex flex-col space-y-1.5 mb-4">
-        <AspectRatio ratio={16 / 9}>
-          <img
-            src="https://placehold.co/500x281"
-            alt="Image"
-            class="rounded-md object-cover hover:cursor-pointer"
-          />
-        </AspectRatio>
-        <div class="text-sm text-muted-foreground">Nama Business Creator</div>
-        <p
-          class="font-semibold leading-none tracking-tight hover:underline hover:underline-offset-2 hover:cursor-pointer"
-        >
-          Judul Project
-        </p>
-      </div>
-      <div class="space-y-1.5">
-        <Progress value={33} />
-        <div class="flex justify-between">
-          <p>Terkumpul 33%</p>
-          <p>Rp157.058.000</p>
-        </div>
-      </div>
-    </div>
+    <ProjectCard
+      progressValue={75}
+      collectedAmount="Rp375.000.000"
+      projectTitle="Judul Project 1"
+      businessOwnerName="Nama Business Creator"
+      imagePlaceholder="https://placehold.co/500x281"
+    />
     <!--/ Card 3 -->
   </div>
   <!--/ Grid layout -->
