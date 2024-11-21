@@ -12,65 +12,106 @@ import {
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Progress } from '@/components/ui/progress';
 import ProjectPagination from '@/components/ProjectPagination.astro';
+import { SearchForm } from '@/components/ui/search-form';
 ---
 
 <Layout title="Project List">
   <!-- Search box -->
-  <div class="p-5">
-    <Input type="text" placeholder="Cari nama proyek atau kategori" />
+  <div
+    class="w-full max-w-sm flex pt-8 mx-auto md:container flex-col items-center"
+  >
+    <div class="w-full sm:w-full md:w-[50%]">
+      <SearchForm />
+    </div>
   </div>
-  <!--/ Search box -->
+  <!-- Search box -->
   <!-- Grid layout -->
-  <div class="p-5">
+  <div
+    class="py-4 mx-auto max-w-sm md:container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+  >
     <!-- Card 1 -->
-    <Card>
-      <CardHeader>
-        <!-- <AspectRatio ratio={16 / 9}>
-          <div class="bg-slate-500"></div>
-        </AspectRatio> -->
-        <CardDescription>Nama Business Creator</CardDescription>
-        <CardTitle>Judul Project</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div class="mb-2 md:p-6">
+      <div class="flex flex-col space-y-1.5 mb-4">
+        <AspectRatio ratio={16 / 9}>
+          <img
+            src="https://placehold.co/500x281"
+            alt="Image"
+            class="rounded-md object-cover hover:cursor-pointer"
+          />
+        </AspectRatio>
+        <div class="text-sm text-muted-foreground">Nama Business Creator</div>
+        <p
+          class="font-semibold leading-none tracking-tight hover:underline hover:underline-offset-2 hover:cursor-pointer"
+        >
+          Judul Project
+        </p>
+      </div>
+      <div class="space-y-1.5">
         <Progress value={33} />
-        <p>Terkumpul 33%</p>
-      </CardContent>
-      <!-- <CardFooter>
-      </CardFooter> -->
-    </Card>
+        <div class="flex justify-between">
+          <p>Terkumpul 33%</p>
+          <p>Rp157.058.000</p>
+        </div>
+      </div>
+    </div>
     <!--/ Card 1 -->
     <!-- Card 2 -->
-    <Card>
-      <CardHeader>
-        <CardDescription>Nama Business Creator</CardDescription>
-        <CardTitle>Judul Project</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div class="mb-2 md:p-6">
+      <div class="flex flex-col space-y-1.5 mb-4">
+        <AspectRatio ratio={16 / 9}>
+          <img
+            src="https://placehold.co/500x281"
+            alt="Image"
+            class="rounded-md object-cover hover:cursor-pointer"
+          />
+        </AspectRatio>
+        <div class="text-sm text-muted-foreground">Nama Business Creator</div>
+        <p
+          class="font-semibold leading-none tracking-tight hover:underline hover:underline-offset-2 hover:cursor-pointer"
+        >
+          Judul Project
+        </p>
+      </div>
+      <div class="space-y-1.5">
         <Progress value={33} />
-        <p>Terkumpul 33%</p>
-      </CardContent>
-    </Card>
+        <div class="flex justify-between">
+          <p>Terkumpul 33%</p>
+          <p>Rp157.058.000</p>
+        </div>
+      </div>
+    </div>
     <!--/ Card 2 -->
     <!-- Card 3 -->
-    <Card>
-      <CardHeader>
-        <CardDescription>Nama Business Creator</CardDescription>
-        <CardTitle>Judul Project</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div class="mb-2 md:p-6">
+      <div class="flex flex-col space-y-1.5 mb-4">
+        <AspectRatio ratio={16 / 9}>
+          <img
+            src="https://placehold.co/500x281"
+            alt="Image"
+            class="rounded-md object-cover hover:cursor-pointer"
+          />
+        </AspectRatio>
+        <div class="text-sm text-muted-foreground">Nama Business Creator</div>
+        <p
+          class="font-semibold leading-none tracking-tight hover:underline hover:underline-offset-2 hover:cursor-pointer"
+        >
+          Judul Project
+        </p>
+      </div>
+      <div class="space-y-1.5">
         <Progress value={33} />
-        <p>Terkumpul 33%</p>
-      </CardContent>
-    </Card>
-    <!--/ Card 3 -->
-    <!--/ Grid layout -->
-    <!-- Pagination -->
-    <div class="mt-5">
-      <ProjectPagination />
+        <div class="flex justify-between">
+          <p>Terkumpul 33%</p>
+          <p>Rp157.058.000</p>
+        </div>
+      </div>
     </div>
-    <!--/ Pagination -->
-    <!-- Drawer example -->
-
-    <!--/ Drawer example -->
+    <!--/ Card 3 -->
   </div>
+  <!--/ Grid layout -->
+  <!-- Pagination -->
+  <div class="mb-10">
+    <ProjectPagination />
+  </div>
+  <!--/ Pagination -->
 </Layout>
