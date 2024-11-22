@@ -1,27 +1,73 @@
 ---
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
 import Layout from '@/layouts/Layout.astro';
+import { AspectRatio } from '@radix-ui/react-aspect-ratio';
 ---
 
 <Layout title="Project Detail">
-  <!-- Project title -->
-  <div>Project title</div>
-  <!--/ Project title -->
-  <!-- Project thumbnail -->
-  <div>Thumbnail</div>
-  <!-- Project thumbnail -->
-  <!-- Description -->
-  <div>Description</div>
-  <!--/ Description -->
-  <!-- Budget & Progress -->
-  <div>Budget & progress</div>
-  <!--/ Budget & Progress -->
-  <!-- Call To Action -->
-  <div>Call To Action (CTA) button</div>
-  <!--/ Call To Action -->
+  <header class="flex flex-col max-w-sm sm:container mx-auto my-4">
+    <div>
+      <!-- Project title -->
+      <div><h1 class="text-xl font-bold">Project title</h1></div>
+      <!--/ Project title -->
+    </div>
+    <div>
+      <!-- Project thumbnail -->
+      <AspectRatio ratio={16 / 9}>
+        <img
+          src={'https://placehold.co/500x281'}
+          alt=""
+          class="rounded-md object-cover hover:cursor-pointer w-[100%]"
+        />
+      </AspectRatio>
+      <!-- Project thumbnail -->
+    </div>
+    <div>
+      <!-- Description -->
+      <div>Description</div>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci in,
+        ipsum omnis ducimus facere culpa accusantium nostrum illum voluptas qui
+        voluptatibus dignissimos quibusdam totam architecto labore libero
+        eligendi! Alias, deserunt!
+      </p>
+      <!--/ Description -->
+      <!-- Budget & Progress -->
+      <div>
+        <div>Budget: Rp500.000.000</div>
+        <Progress value={50} />
+        <div class="flex justify-between">
+          <p>Terkumpul 50%</p>
+          <p>Rp250.000.000</p>
+        </div>
+      </div>
+      <!--/ Budget & Progress -->
+      <!-- Call To Action -->
+      <Button>Invest</Button>
+      <!--/ Call To Action -->
+    </div>
+  </header>
   <!-- Scope -->
-  <section>Scope section</section>
+  <section class="max-w-sm sm:container mx-auto my-4">
+    <h2 class="text-lg font-bold">Scope section</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
+      voluptates possimus ipsum excepturi ab natus, est qui consectetur,
+      obcaecati officia iste nulla iusto laborum sequi saepe facere ad veritatis
+      consequuntur?
+    </p>
+  </section>
   <!--/ Scope -->
   <!-- Talent -->
-  <section>Talent section</section>
+  <section class="max-w-sm sm:container mx-auto my-4">
+    <h2 class="text-lg font-bold">Talent section</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
+      voluptatum commodi. Maxime unde, qui porro officiis autem et rerum
+      veritatis fugit magnam aperiam fugiat facilis dolorum quis, est dicta
+      odio!
+    </p>
+  </section>
   <!--/ Talent -->
 </Layout>
