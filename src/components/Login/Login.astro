@@ -32,11 +32,34 @@ if (Astro.request.method === 'POST') {
     }
   }
 }
+
+import AnimatedGridPattern from '../ui/animated-grid-pattern';
+import { cn } from '@/lib/utils';
 ---
 
-<main class="grid grid-cols-12 container mx-auto h-svh p-5">
+<main class="grid grid-cols-12 container mx-auto h-[calc(100svh-60px)] p-5">
   <div class="col-span-6">
-    <div class="w-full h-full p-5 bg-slate-500 rounded-xl"></div>
+    <div
+      class="relative flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+    >
+      <p
+        class="z-10 whitespace-pre-wrap text-center text-5xl tracking-tighter text-black dark:text-white"
+      >
+        Log In to Idea<span class="font-medium">Go</span>
+      </p>
+      <br />
+      <AnimatedGridPattern
+        client:load
+        numSquares={60}
+        maxOpacity={0.1}
+        duration={2}
+        repeatDelay={1}
+        className={cn(
+          '[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]',
+          'inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
+        )}
+      />
+    </div>
   </div>
   <div
     class="col-span-6 h-full flex flex-col w-full justify-around items-center"

@@ -9,12 +9,11 @@ interface DataMenu {
 
 interface Props {
   data: DataMenu[];
-  nameCompany: string;
   logo?: string;
   className?: string;
 }
 
-const { data, nameCompany, logo, className } = Astro.props;
+const { data, logo, className } = Astro.props;
 ---
 
 <section class=`${className} border-b`>
@@ -25,11 +24,12 @@ const { data, nameCompany, logo, className } = Astro.props;
       <NavigationDrawer dataMenu={data} client:load />
     </div>
     <div class="flex flex-row gap-5 justify-center items-center">
-
       <a href="/">
-        <div class="font-bold text-lg tracking-wider">{nameCompany}</div>
+        <div class="font-medium text-lg tracking-wider">
+          Idea<span class="font-bold">Go</span>
+        </div>
       </a>
-      {logo && <img src={logo} alt={nameCompany} />}
+      {logo && <img src={logo} alt="IdeaGo" />}
     </div>
     <div class="w-[50px] sm:hidden"></div>
     <div class="gap-3 hidden md:flex flex-row">
