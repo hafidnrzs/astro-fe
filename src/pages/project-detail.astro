@@ -3,16 +3,21 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import Layout from '@/layouts/Layout.astro';
 import { AspectRatio } from '@radix-ui/react-aspect-ratio';
+import { AvatarComponent } from '@/components/AvatarComponent';
 ---
 
 <Layout title="Project Detail">
-  <header class="flex flex-col max-w-sm sm:container mx-auto my-4">
+  <header class="flex flex-col mb-4 pb-6 border-b">
     <div>
       <!-- Project title -->
-      <div><h1 class="text-xl font-bold">Project title</h1></div>
+      <div class="max-w-sm mx-auto mt-2.5 mb-5">
+        <h1 class="text-2xl font-bold">
+          Inisiatif Pendidikan Berkelanjutan 2024
+        </h1>
+      </div>
       <!--/ Project title -->
     </div>
-    <div>
+    <div class="order-first">
       <!-- Project thumbnail -->
       <AspectRatio ratio={16 / 9}>
         <img
@@ -23,30 +28,65 @@ import { AspectRatio } from '@radix-ui/react-aspect-ratio';
       </AspectRatio>
       <!-- Project thumbnail -->
     </div>
-    <div>
+    <div class="max-w-sm mx-auto mb-6">
       <!-- Description -->
-      <div>Description</div>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci in,
-        ipsum omnis ducimus facere culpa accusantium nostrum illum voluptas qui
-        voluptatibus dignissimos quibusdam totam architecto labore libero
-        eligendi! Alias, deserunt!
+        Proyek ini bertujuan untuk meningkatkan akses dan kualitas pendidikan di
+        daerah terpencil melalui pengembangan kurikulum berbasis teknologi dan
+        pelatihan guru. Fokus utama adalah pada pendidikan berkelanjutan yang
+        mendukung pengembangan keterampilan abad ke-21 dan inklusi digital bagi
+        semua siswa.
       </p>
-      <!--/ Description -->
-      <!-- Budget & Progress -->
-      <div>
-        <div>Budget: Rp500.000.000</div>
-        <Progress value={50} />
-        <div class="flex justify-between">
-          <p>Terkumpul 50%</p>
-          <p>Rp250.000.000</p>
+    </div>
+    <!--/ Description -->
+    <!-- Business Owner -->
+    <div class="border-y w-full">
+      <div class="max-w-sm mx-auto py-2">
+        <span class="font-semibold">Business Creator</span>
+        <div class="flex flex-row gap-x-2.5">
+          <div>
+            <AvatarComponent
+              client:load
+              variant="h-[60px] w-[60px]"
+              src="https://avatars.githubusercontent.com/u/162709834?s=200&v=4"
+              alt="IMPHNEN"
+              fallbackText="IM"
+            />
+          </div>
+          <div class="self-center font-bold">IMPHNEN</div>
         </div>
       </div>
-      <!--/ Budget & Progress -->
-      <!-- Call To Action -->
-      <Button>Invest</Button>
-      <!--/ Call To Action -->
     </div>
+    <!--/ Business Owner -->
+    <!-- Durasi, Progress, dan Budget -->
+    <div class="w-full max-w-sm mx-auto py-3">
+      <div class="mb-4">
+        <div class="text-xs">Durasi proyek</div>
+        <div class="font-bold text-lg">90 hari</div>
+      </div>
+      <Progress value={50} />
+      <div class="flex flex-row justify-between mt-2">
+        <div class="leading-none">
+          <span class="font-bold text-primary text-lg leading-none"
+            >Rp250.000.000</span
+          >
+          <br />
+          <span class="text-xs">Terkumpul dari Rp500.000.000</span>
+        </div>
+        <div class="leading-none">
+          <div class="font-bold text-lg leading-none">30</div>
+          <span class="text-xs">hari lagi</span>
+        </div>
+      </div>
+    </div>
+    <!--/ Durasi, Progress, dan Budget -->
+    <!-- Call To Action -->
+    <div class="w-full max-w-sm mx-auto mt-2">
+      <Button className="w-full py-5">
+        <a href="#" class="text-lg">Invest</a>
+      </Button>
+    </div>
+    <!--/ Call To Action -->
   </header>
   <!-- Scope -->
   <section class="max-w-sm sm:container mx-auto my-4">
