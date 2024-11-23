@@ -1,5 +1,6 @@
 ---
-import { NavigationDrawer } from '../NavigationDrawer';
+import { NavigationDrawer } from '@/components/NavigationDrawer';
+import { Button } from '@/components/ui/button';
 
 interface DataMenu {
   name: string;
@@ -16,36 +17,23 @@ interface Props {
 const { data, nameCompany, logo, className } = Astro.props;
 ---
 
-<main class=`${className} text-sm bg-slate-200`>
+<section class=`${className} border-b`>
   <div
-    class="flex px-2 py-4 flex-row mx-auto container gap-5 justify-between items-center"
+    class="w-full max-w-2xl px-2 sm:px-0 xl:container mx-auto flex py-2 flex-row gap-5 justify-between items-center"
   >
     <div class="block sm:hidden">
       <NavigationDrawer dataMenu={data} client:load />
     </div>
     <div class="flex flex-row gap-5 justify-center items-center">
-      <div class="font-bold text-lg tracking-wider">{nameCompany}</div>
+      <a href="/">
+        <div class="font-bold text-lg tracking-wider">{nameCompany}</div>
+      </a>
       {logo && <img src={logo} alt={nameCompany} />}
     </div>
     <div class="w-[50px] sm:hidden"></div>
-    <div class="hidden md:flex flex-row gap-5 justify-stretch items-center">
-      {
-        data.map((menu) => (
-          <a class="text-black" href={menu.link}>
-            {menu.name}
-          </a>
-        ))
-      }
-    </div>
-    <div class="gap-5 hidden md:flex flex-row">
-      <button
-        class="bg-slate-400 shadow-md px-4 py-2 text-sm font-semibold text-white rounded"
-        >Register</button
-      >
-      <button
-        class="bg-slate-100 shadow-md px-4 py-2 text-sm font-semibold text-black rounded"
-        >Login</button
-      >
+    <div class="gap-3 hidden md:flex flex-row">
+      <Button variant={'outline'}><a href="register">Register</a></Button>
+      <Button variant={'outline'}><a href="login">Login</a></Button>
     </div>
   </div>
-</main>
+</section>

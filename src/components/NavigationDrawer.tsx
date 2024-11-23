@@ -32,12 +32,12 @@ export function NavigationDrawer({ dataMenu }: Props) {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="outline">
+        <Button variant={"ghost"}>
           <Menu></Menu>
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <div className="mx-auto w-full max-w-sm overflow py-6">
+        <div className="px-2 sm:px-0 mx-auto w-full max-w-sm overflow py-6">
           <div className="flex flex-col space-y-3">
             <a href="/" className="text-base">
               Home

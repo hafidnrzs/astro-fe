@@ -4,110 +4,191 @@ import { Progress } from '@/components/ui/progress';
 import Layout from '@/layouts/Layout.astro';
 import { AspectRatio } from '@radix-ui/react-aspect-ratio';
 import { AvatarComponent } from '@/components/AvatarComponent';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 ---
 
 <Layout title="Project Detail">
-  <header class="flex flex-col mb-4 pb-6 border-b">
-    <div>
-      <!-- Project title -->
-      <div class="max-w-sm mx-auto mt-2.5 mb-5">
-        <h1 class="text-2xl font-bold">
-          Inisiatif Pendidikan Berkelanjutan 2024
-        </h1>
-      </div>
-      <!--/ Project title -->
-    </div>
-    <div class="order-first">
+  <header class="flex flex-col mb-4 border-b md:border-b-0 xl:mt-8">
+    <div class="w-full xl:grid xl:grid-cols-3 xl:gap-12 xl:container mx-auto">
       <!-- Project thumbnail -->
-      <AspectRatio ratio={16 / 9}>
-        <img
-          src={'https://placehold.co/500x281'}
-          alt=""
-          class="rounded-md object-cover hover:cursor-pointer w-[100%]"
-        />
-      </AspectRatio>
+      <div class="order-first col-span-2 mb-4">
+        <AspectRatio ratio={16 / 9}>
+          <img
+            src={'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+            alt=""
+            class="rounded-md object-cover hover:cursor-pointer h-full w-full"
+          />
+        </AspectRatio>
+      </div>
       <!-- Project thumbnail -->
-    </div>
-    <div class="max-w-sm mx-auto mb-6">
-      <!-- Description -->
-      <p>
-        Proyek ini bertujuan untuk meningkatkan akses dan kualitas pendidikan di
-        daerah terpencil melalui pengembangan kurikulum berbasis teknologi dan
-        pelatihan guru. Fokus utama adalah pada pendidikan berkelanjutan yang
-        mendukung pengembangan keterampilan abad ke-21 dan inklusi digital bagi
-        semua siswa.
-      </p>
-    </div>
-    <!--/ Description -->
-    <!-- Business Owner -->
-    <div class="border-y w-full">
-      <div class="max-w-sm mx-auto py-2">
-        <span class="font-semibold">Business Creator</span>
-        <div class="flex flex-row gap-x-2.5">
-          <div>
-            <AvatarComponent
-              client:load
-              variant="h-[60px] w-[60px]"
-              src="https://avatars.githubusercontent.com/u/162709834?s=200&v=4"
-              alt="IMPHNEN"
-              fallbackText="IM"
-            />
-          </div>
-          <div class="self-center font-bold">IMPHNEN</div>
-        </div>
-      </div>
-    </div>
-    <!--/ Business Owner -->
-    <!-- Durasi, Progress, dan Budget -->
-    <div class="w-full max-w-sm mx-auto py-3">
-      <div class="mb-4">
-        <div class="text-xs">Durasi proyek</div>
-        <div class="font-bold text-lg">90 hari</div>
-      </div>
-      <Progress value={50} />
-      <div class="flex flex-row justify-between mt-2">
-        <div class="leading-none">
-          <span class="font-bold text-primary text-lg leading-none"
-            >Rp250.000.000</span
+      <div>
+        <!-- Description -->
+        <section
+          class="w-full max-w-sm px-2 sm:px-0 sm:max-w-2xl xl:container mx-auto mb-6 col-span-1"
+        >
+          <h1 class="text-2xl xl:text-3xl font-bold mb-5 mt-2.5">
+            Inisiatif Pendidikan Berkelanjutan 2024
+          </h1>
+          <p>
+            Proyek ini bertujuan untuk meningkatkan akses dan kualitas
+            pendidikan di daerah terpencil melalui pengembangan kurikulum
+            berbasis teknologi dan pelatihan guru. Fokus utama adalah pada
+            pendidikan berkelanjutan yang mendukung pengembangan keterampilan
+            abad ke-21 dan inklusi digital bagi semua siswa.
+          </p>
+        </section>
+        <!--/ Description -->
+        <!-- Business Owner -->
+        <section class="border-y w-full">
+          <div
+            class="w-full max-w-sm px-2 sm:px-0 sm:max-w-2xl mx-auto xl:container py-2"
           >
-          <br />
-          <span class="text-xs">Terkumpul dari Rp500.000.000</span>
-        </div>
-        <div class="leading-none">
-          <div class="font-bold text-lg leading-none">30</div>
-          <span class="text-xs">hari lagi</span>
-        </div>
+            <span class="font-semibold">Business Creator</span>
+            <div class="flex flex-row gap-x-2.5">
+              <div>
+                <AvatarComponent
+                  client:load
+                  variant="h-[60px] w-[60px]"
+                  src="https://avatars.githubusercontent.com/u/162709834?s=200&v=4"
+                  alt="IMPHNEN"
+                  fallbackText="IM"
+                />
+              </div>
+              <div class="self-center font-bold">IMPHNEN</div>
+            </div>
+          </div>
+        </section>
+        <!--/ Business Owner -->
+        <!-- Durasi, Progress, dan Budget -->
+        <section class="bg-accent sm:bg-inherit pb-6">
+          <div
+            class="w-full max-w-sm px-2 sm:px-0 sm:max-w-2xl xl:container mx-auto py-3"
+          >
+            <div class="mb-4">
+              <div class="text-xs sm:text-sm">Durasi proyek</div>
+              <div class="font-bold text-lg sm:text-xl">90 hari</div>
+            </div>
+            <Progress value={50} />
+            <div class="flex flex-row justify-between mt-2">
+              <div class="leading-none">
+                <span
+                  class="font-bold text-primary text-lg sm:text-xl leading-none"
+                  >Rp250.000.000</span
+                >
+                <br />
+                <span class="text-xs sm:text-sm"
+                  >Terkumpul dari Rp500.000.000</span
+                >
+              </div>
+              <div class="leading-none">
+                <div class="font-bold text-lg sm:text-xl leading-none">30</div>
+                <span class="text-xs sm:text-sm">hari lagi</span>
+              </div>
+            </div>
+          </div>
+          <!--/ Durasi, Progress, dan Budget -->
+          <!-- Call To Action -->
+          <div
+            class="w-full max-w-sm px-2 sm:px-0 sm:max-w-2xl xl:container mx-auto mt-2"
+          >
+            <Button className="w-full py-5">
+              <a href="#" class="text-lg">Invest</a>
+            </Button>
+          </div>
+          <!--/ Call To Action -->
+        </section>
       </div>
     </div>
-    <!--/ Durasi, Progress, dan Budget -->
-    <!-- Call To Action -->
-    <div class="w-full max-w-sm mx-auto mt-2">
-      <Button className="w-full py-5">
-        <a href="#" class="text-lg">Invest</a>
-      </Button>
-    </div>
-    <!--/ Call To Action -->
   </header>
-  <!-- Scope -->
-  <section class="max-w-sm sm:container mx-auto my-4">
-    <h2 class="text-lg font-bold">Scope section</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
-      voluptates possimus ipsum excepturi ab natus, est qui consectetur,
-      obcaecati officia iste nulla iusto laborum sequi saepe facere ad veritatis
-      consequuntur?
-    </p>
+  <!-- Talents required -->
+  <section class="my-10">
+    <div class="w-full max-w-2xl px-2 sm:px-0 xl:container mx-auto">
+      <h2 class="text-2xl font-bold">Talents Required</h2>
+    </div>
+    <div
+      class="px-2 max-w-2xl sm:px-0 xl:grid xl:grid-cols-2 xl:container gap-4 mx-auto"
+    >
+      <!-- Talent 1  -->
+      <section class="py-2">
+        <div class="w-full mx-auto md:container">
+          <Card>
+            <CardHeader className="px-4 sm:px-6">
+              <CardTitle
+                ><h2 class="text-lg">Senior Full Stack Developer</h2></CardTitle
+              >
+              <CardDescription>
+                <div
+                  class="flex flex-row justify-between md:justify-normal gap-8"
+                >
+                  <div>
+                    <span>Alokasi Budget</span>
+                    <br />
+                    <span class="font-bold text-lg text-black"
+                      >Rp25.000.000</span
+                    >
+                  </div>
+                  <Button className="self-end text-black" variant={'outline'}
+                    >Apply</Button
+                  >
+                </div>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="px-4 sm:px-6">
+              <h3>Scope of work</h3>
+              <ul class="list-disc ms-5">
+                <li>Pengembangan backend menggunakan Node.js dan Express</li>
+                <li>Implementasi frontend menggunakan React dan Next.js</li>
+                <li>Integrasi payment gateway dan sistem keamanan</li>
+                <li>Code review dan mentoring tim junior</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+      <!--/ Talent 1  -->
+      <!-- Talent 2  -->
+      <section class="py-2">
+        <div class="w-full max-w-sm mx-auto md:container">
+          <Card>
+            <CardHeader className="px-4 sm:px-6">
+              <CardTitle><h2 class="text-lg">UI/UX Designer</h2></CardTitle>
+              <CardDescription>
+                <div
+                  class="flex flex-row justify-between md:justify-normal gap-8"
+                >
+                  <div>
+                    <span>Alokasi Budget</span>
+                    <br />
+                    <span class="font-bold text-lg text-black"
+                      >Rp18.000.000</span
+                    >
+                  </div>
+                  <Button className="self-end text-black" variant={'outline'}
+                    >Apply</Button
+                  >
+                </div>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="px-4 sm:px-6">
+              <h3>Scope of work</h3>
+              <ul class="list-disc ms-5">
+                <li>Desain user interface untuk web dan mobile</li>
+                <li>User research dan usability testing</li>
+                <li>Pembuatan design system</li>
+                <li>Prototyping dan user journey mapping</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+      <!--/ Talent 2  -->
+    </div>
   </section>
-  <!--/ Scope -->
-  <!-- Talent -->
-  <section class="max-w-sm sm:container mx-auto my-4">
-    <h2 class="text-lg font-bold">Talent section</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-      voluptatum commodi. Maxime unde, qui porro officiis autem et rerum
-      veritatis fugit magnam aperiam fugiat facilis dolorum quis, est dicta
-      odio!
-    </p>
-  </section>
-  <!--/ Talent -->
+  <!--/ Talents required -->
 </Layout>
