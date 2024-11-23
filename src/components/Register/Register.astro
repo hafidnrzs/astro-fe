@@ -46,6 +46,7 @@ if (Astro.request.method === 'POST') {
 
 import AnimatedGridPattern from '../ui/animated-grid-pattern';
 import { cn } from '@/lib/utils';
+import SignupFormDemo from '@/components/example/signup-form-demo';
 ---
 
 <main class="grid grid-cols-12 container mx-auto h-[calc(100svh-60px)] p-5">
@@ -60,7 +61,7 @@ import { cn } from '@/lib/utils';
       </p>
       <br />
       <AnimatedGridPattern
-        client:load
+        client:idle
         numSquares={60}
         maxOpacity={0.1}
         duration={2}
@@ -75,7 +76,8 @@ import { cn } from '@/lib/utils';
   <div
     class="col-span-6 h-full flex flex-col w-full justify-around items-center"
   >
-    <div class="w-[50%] flex flex-col justify-around h-full">
+    <SignupFormDemo client:idle />
+    <!-- <div class="w-[50%] flex flex-col justify-around h-full">
       <h1>Register</h1>
       <form
         class="flex flex-col w-full justify-start items-start gap-5"
@@ -136,6 +138,6 @@ import { cn } from '@/lib/utils';
         <div>Login With</div>
         <a href="">Google</a>
       </div>
-    </div>
+    </div> -->
   </div>
 </main>
