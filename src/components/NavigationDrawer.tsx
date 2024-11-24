@@ -26,9 +26,10 @@ interface DataMenu {
 
 interface Props {
   dataMenu: DataMenu[]
+  isLoggedIn?: boolean
 }
 
-export function NavigationDrawer({ dataMenu }: Props) {
+export function NavigationDrawer({ dataMenu, isLoggedIn = false }: Props) {
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -47,11 +48,20 @@ export function NavigationDrawer({ dataMenu }: Props) {
                 {menu.name}
               </a>
             ))}
-            <a href="/register" className="text-base">
+            <a
+              href="/register"
+              className={`text-base ${isLoggedIn ? "hidden" : ""}`}
+            >
               Register
             </a>
-            <a href="/login" className="text-base">
+            <a
+              href="/login"
+              className={`text-base ${isLoggedIn ? "hidden" : ""}`}
+            >
               Login
+            </a>
+            <a href="/" className={`text-base ${isLoggedIn ? "" : "hidden"}`}>
+              Logout
             </a>
           </div>
         </div>
