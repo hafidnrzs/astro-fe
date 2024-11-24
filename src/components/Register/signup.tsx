@@ -14,6 +14,7 @@ import {
 export default function SignUp() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    window.location.href = "/client/generate"
   }
   const apiUrl = import.meta.env.API_URL
 
