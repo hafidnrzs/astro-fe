@@ -61,6 +61,20 @@
   }
 }
 
-body {
-  font-family: 'Inter', sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
 }

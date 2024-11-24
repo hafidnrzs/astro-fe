@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 export default function SignIn() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    window.location.href = "/client/generate"
   }
   const apiUrl = import.meta.env.API_URL
 
