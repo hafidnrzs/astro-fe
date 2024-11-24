@@ -38,7 +38,7 @@ export function NavigationDrawer({ dataMenu, isLoggedIn = false }: Props) {
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <div className="px-2 sm:px-0 mx-auto w-full max-w-sm overflow py-6">
+        <div className="px-4 sm:px-0 mx-auto w-full max-w-sm overflow py-6">
           <div className="flex flex-col space-y-3">
             <a href="/" className="text-base">
               Home
