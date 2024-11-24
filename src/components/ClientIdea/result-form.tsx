@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Plus, Trash } from "lucide-react"
 import projectData from "@/data/projects.json"
 
+
 export default function ResultForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -15,15 +16,15 @@ export default function ResultForm() {
   }
 
   const project = projectData.projects[0]
-
+  
   return (
     <div className="w-full sm:w-9/12 mx-auto rounded-none md:rounded-md p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <form className="my-8" onSubmit={handleSubmit} method="POST">
         <LabelInputContainer className="mb-4 max-w-3xl">
-          <Label htmlFor="text">Project Name</Label>
+          <Label htmlFor="project_name">Project Name</Label>
           <Input
-            id="text"
-            name="username"
+            id="project_name"
+            name="project_name"
             type="text"
             placeholder="What is your project name?"
             showAnimation={false}
@@ -31,7 +32,7 @@ export default function ResultForm() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="text">Project Description</Label>
+          <Label htmlFor="project_description">Project Description</Label>
           <Textarea
             placeholder="Type your project description here..."
             rows={6}
@@ -47,22 +48,22 @@ export default function ResultForm() {
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Project Duration</Label>
           <Input
-            id="email"
-            name="email"
+            id="project_duration"
+            name="project_duration"
             type="text"
             showAnimation={false}
             className="inline max-w-[150px]"
             min={0}
             value={project.project_duration}
-          />
+           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Project Budget</Label>
+          <Label htmlFor="project_budget">Project Budget</Label>
           <div className="flex flex-row gap-2">
             <span className="self-center text-sm">$</span>
             <Input
-              id="email"
-              name="email"
+              id="project_budget"
+              name="project_budget"
               type="number"
               showAnimation={false}
               className="inline max-w-[200px]"
@@ -104,8 +105,8 @@ export default function ResultForm() {
               <div className="flex flex-row gap-2">
                 <span className="self-center text-sm">$</span>
                 <Input
-                  id="email"
-                  name="email"
+                  id="budget_allocation"
+                  name="budget_allocation"
                   type="number"
                   showAnimation={false}
                   className="inline max-w-[200px]"
@@ -115,7 +116,7 @@ export default function ResultForm() {
               </div>
             </LabelInputContainer>
             <LabelInputContainer className="mb-4">
-              <Label htmlFor="text">Scope of work</Label>
+              <Label htmlFor="scope_of_work">Scope of work</Label>
               <Textarea
                 placeholder="Scope of work for this position..."
                 rows={3}
