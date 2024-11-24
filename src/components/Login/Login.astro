@@ -39,7 +39,7 @@ import SignIn from '@/components/Login/signin';
 ---
 
 <main class="grid grid-cols-12 container mx-auto h-[calc(100svh-60px)] p-5">
-  <div class="col-span-6">
+  <div class="hidden lg:flex md:col-span-6">
     <div
       class="relative flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
     >
@@ -63,7 +63,7 @@ import SignIn from '@/components/Login/signin';
     </div>
   </div>
   <div
-    class="col-span-6 h-full flex flex-col w-full justify-around items-center"
+    class="col-span-12 lg:col-span-6 h-full flex flex-col w-full justify-around items-center"
   >
     <SignIn client:load />
   </div>
