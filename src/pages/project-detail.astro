@@ -22,7 +22,7 @@ import {
           <img
             src={'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
             alt=""
-            class="rounded-md object-cover hover:cursor-pointer h-full w-full"
+            class="rounded-md object-cover hover:cursor-pointer h-full w-full hover:scale-[1.01] ring-slate-200 hover:ring-4 hover:ring-offset-2 duration-400 ease-in-out delay-75 transition-all"
           />
         </AspectRatio>
       </div>
@@ -109,7 +109,7 @@ import {
   <!-- Talents required -->
   <section class="my-10">
     <div class="w-full max-w-2xl px-2 sm:px-0 xl:container mx-auto">
-      <h2 class="text-2xl font-bold">Talents Required</h2>
+      <h2 class="text-xl sm:text-2xl font-bold">Talents Required</h2>
     </div>
     <div
       class="px-2 max-w-2xl sm:px-0 xl:grid xl:grid-cols-2 xl:container gap-4 mx-auto"
@@ -129,7 +129,7 @@ import {
                   <div>
                     <span>Alokasi Budget</span>
                     <br />
-                    <span class="font-bold text-lg text-black"
+                    <span class="font-bold text-base sm:text-lg text-black"
                       >Rp25.000.000</span
                     >
                   </div>
@@ -140,7 +140,9 @@ import {
               </CardDescription>
             </CardHeader>
             <CardContent className="px-4 sm:px-6">
-              <h3>Scope of work</h3>
+              <h3 class="text-sm sm:text-base text-muted-foreground">
+                Scope of work
+              </h3>
               <ul class="list-disc ms-5">
                 <li>Pengembangan backend menggunakan Node.js dan Express</li>
                 <li>Implementasi frontend menggunakan React dan Next.js</li>
@@ -165,7 +167,7 @@ import {
                   <div>
                     <span>Alokasi Budget</span>
                     <br />
-                    <span class="font-bold text-lg text-black"
+                    <span class="font-bold text-base sm:text-lg text-black"
                       >Rp18.000.000</span
                     >
                   </div>
@@ -176,7 +178,9 @@ import {
               </CardDescription>
             </CardHeader>
             <CardContent className="px-4 sm:px-6">
-              <h3>Scope of work</h3>
+              <h3 class="text-sm sm:text-base text-muted-foreground">
+                Scope of work
+              </h3>
               <ul class="list-disc ms-5">
                 <li>Desain user interface untuk web dan mobile</li>
                 <li>User research dan usability testing</li>
