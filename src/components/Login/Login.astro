@@ -35,7 +35,7 @@ if (Astro.request.method === 'POST') {
 
 import AnimatedGridPattern from '../ui/animated-grid-pattern';
 import { cn } from '@/lib/utils';
-import SignupFormDemo from '@/components/example/signup-form-demo';
+import SignIn from '@/components/Login/signin';
 ---
 
 <main class="grid grid-cols-12 container mx-auto h-[calc(100svh-60px)] p-5">
@@ -51,9 +51,9 @@ import SignupFormDemo from '@/components/example/signup-form-demo';
       <br />
       <AnimatedGridPattern
         client:idle
-        numSquares={60}
+        numSquares={50}
         maxOpacity={0.1}
-        duration={2}
+        duration={3}
         repeatDelay={1}
         className={cn(
           '[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]',
@@ -65,39 +65,6 @@ import SignupFormDemo from '@/components/example/signup-form-demo';
   <div
     class="col-span-6 h-full flex flex-col w-full justify-around items-center"
   >
-    <div class="w-[50%] flex flex-col justify-around h-full">
-      <SignupFormDemo client:idle />
-      <!-- <h1>Login</h1>
-      <form
-        class="flex flex-col w-full justify-start items-start gap-5"
-        method="POST"
-      >
-        <label class="flex gap-3 flex-col w-full">
-          Email:
-          <input
-            class="w-full p-1 border-black border rounded"
-            type="email"
-            name="email"
-            required
-          />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label class="flex gap-3 flex-col w-full">
-          Password:
-          <input
-            class="w-full p-1 border-black border rounded"
-            type="password"
-            name="password"
-            required
-            minlength="6"
-          />
-        </label>
-        <div
-          class="flex bg-slate-200 py-2 rounded justify-center items-center w-full"
-        >
-          <button>Login</button>
-        </div>
-      </form> -->
-    </div>
+    <SignIn client:load />
   </div>
 </main>

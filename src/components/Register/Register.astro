@@ -46,7 +46,7 @@ if (Astro.request.method === 'POST') {
 
 import AnimatedGridPattern from '../ui/animated-grid-pattern';
 import { cn } from '@/lib/utils';
-import SignupFormDemo from '@/components/example/signup-form-demo';
+import SignUp from '@/components/Register/signup';
 ---
 
 <main class="grid grid-cols-12 container mx-auto h-[calc(100svh-60px)] p-5">
@@ -62,9 +62,9 @@ import SignupFormDemo from '@/components/example/signup-form-demo';
       <br />
       <AnimatedGridPattern
         client:idle
-        numSquares={60}
+        numSquares={50}
         maxOpacity={0.1}
-        duration={2}
+        duration={3}
         repeatDelay={1}
         className={cn(
           '[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]',
@@ -76,68 +76,6 @@ import SignupFormDemo from '@/components/example/signup-form-demo';
   <div
     class="col-span-6 h-full flex flex-col w-full justify-around items-center"
   >
-    <SignupFormDemo client:idle />
-    <!-- <div class="w-[50%] flex flex-col justify-around h-full">
-      <h1>Register</h1>
-      <form
-        class="flex flex-col w-full justify-start items-start gap-5"
-        method="POST"
-      >
-        <label class="flex gap-3 flex-col w-full">
-          Username:
-          <input
-            class="w-full p-1 border-black border rounded"
-            type="text"
-            name="username"
-          />
-        </label>
-        {errors.username && <p>{errors.username}</p>}
-        <label class="flex gap-3 flex-col w-full">
-          Email:
-          <input
-            class="w-full p-1 border-black border rounded"
-            type="email"
-            name="email"
-            required
-          />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label class="flex gap-3 flex-col w-full">
-          Password:
-          <input
-            class="w-full p-1 border-black border rounded"
-            type="password"
-            name="password"
-            required
-            minlength="6"
-          />
-        </label>
-        <label class="flex flex-col gap-3 w-full">
-          Confirm Password:
-          <input
-            class="w-full p-1 border-black border rounded"
-            type="password"
-            name="Confirmpassword"
-            required
-            minlength="6"
-          />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <div class="flex flex-row gap-3 justify-center items-center">
-          <input type="checkbox" name="term" value="accepted" />
-          <div>check to accept our terms</div>
-        </div>
-        {errors.term && <p>{errors.term}</p>}
-        <div
-          class="flex bg-slate-200 py-2 rounded justify-center items-center w-full"
-        >
-          <button>Register</button>
-        </div>
-      </form>
-      <div class="flex justify-center items-center w-full flex-col gap-5">
-        <div>Login With</div>
-        <a href="">Google</a>
-      </div>
-    </div> -->
+    <SignUp client:load />
   </div>
 </main>
