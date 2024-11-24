@@ -6,6 +6,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
 } from "@radix-ui/react-icons"
+import { useMotionTemplate, useMotionValue, motion } from "framer-motion"
 
 const Select = SelectPrimitive.Root
 
@@ -16,21 +17,50 @@ const SelectValue = SelectPrimitive.Value
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <SelectPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
-      className
-    )}
-    {...props}
-  >
-    {children}
-    <SelectPrimitive.Icon asChild>
-      <ChevronDownIcon className="h-4 w-4 opacity-50" />
-    </SelectPrimitive.Icon>
-  </SelectPrimitive.Trigger>
-))
+>(({ className, children, ...props }, ref) => {
+  const radius = 100
+  const [visible, setVisible] = React.useState(false)
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: any) {
+    let { left, top } = currentTarget.getBoundingClientRect()
+    mouseX.set(clientX - left)
+    mouseY.set(clientY - top)
+  }
+
+  return (
+    <motion.div
+      style={{
+        background: useMotionTemplate`
+          radial-gradient(
+            ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
+            var(--blue-500),
+            transparent 80%
+          )
+        `,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+      className="p-[2px] rounded-lg transition duration-300 group/select"
+    >
+      <SelectPrimitive.Trigger
+        ref={ref}
+        className={cn(
+          `flex h-10 w-full border items-center justify-between whitespace-nowrap rounded-md bg-gray-50 dark:bg-zinc-800 text-neutral-400 dark:text-neutral-600 px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-neutral-400 dark:placeholder-text-neutral-600 shadow-input focus:outline-none focus:ring-[2px] focus:ring-neutral-400 dark:focus:ring-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 group-hover/select:shadow-none transition duration-400 `,
+          className
+        )}
+        {...props}
+      >
+        {children}
+        <SelectPrimitive.Icon asChild>
+          <ChevronDownIcon className="h-4 w-4 opacity-50" />
+        </SelectPrimitive.Icon>
+      </SelectPrimitive.Trigger>
+    </motion.div>
+  )
+})
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 
 const SelectScrollUpButton = React.forwardRef<

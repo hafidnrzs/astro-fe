@@ -89,7 +89,7 @@ export default function SignUp() {
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-8">
-          <Label htmlFor="confirmpassword">Confirm Password</Label>
+          <Label>Select Role</Label>
           <Select>
             <SelectTrigger>
               <SelectValue placeholder="Select role" />
