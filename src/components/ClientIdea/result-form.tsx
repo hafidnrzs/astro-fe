@@ -6,12 +6,15 @@ import { cn } from "@/lib/utils"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Plus, Trash } from "lucide-react"
+import projectData from "@/data/projects.json"
 
 export default function ResultForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     window.location.href = "/project-list"
   }
+
+  const project = projectData.projects[0]
 
   return (
     <div className="w-full sm:w-9/12 mx-auto rounded-none md:rounded-md p-4 md:p-8 shadow-input bg-white dark:bg-black">
@@ -24,6 +27,7 @@ export default function ResultForm() {
             type="text"
             placeholder="What is your project name?"
             showAnimation={false}
+            value={project.project_name}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -37,21 +41,20 @@ export default function ResultForm() {
            disabled:cursor-not-allowed disabled:opacity-50
            dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
            "
+            value={project.project_description}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Project Duration</Label>
-          <div className="flex flex-row gap-2">
-            <Input
-              id="email"
-              name="email"
-              type="number"
-              showAnimation={false}
-              className="inline max-w-[75px]"
-              min={0}
-            />
-            <span className="self-center text-sm">month</span>
-          </div>
+          <Input
+            id="email"
+            name="email"
+            type="text"
+            showAnimation={false}
+            className="inline max-w-[150px]"
+            min={0}
+            value={project.project_duration}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Project Budget</Label>
@@ -64,6 +67,7 @@ export default function ResultForm() {
               showAnimation={false}
               className="inline max-w-[200px]"
               min={0}
+              value={project.project_budget}
             />
           </div>
         </LabelInputContainer>
@@ -78,98 +82,54 @@ export default function ResultForm() {
             <Plus /> Add Talent
           </Button>
         </div>
-        {/* Talent */}
-        <section className="border px-4 rounded-md my-4">
-          <div className="flex flex-row items-baseline justify-between">
-            <h2 className="font-semibold text-base my-4 text-neutral-800 dark:text-neutral-200">
-              Lead Frontend Developer
-            </h2>
-            <div>
-              <Button
-                type="button"
-                onClick={() => {}}
-                variant={"destructive"}
-                size={"sm"}
-              >
-                <Trash /> Delete
-              </Button>
+        {project.talents_required.map((talent, index) => (
+          <section className="border px-4 rounded-md my-4">
+            <div className="flex flex-row items-baseline justify-between">
+              <h2 className="font-semibold text-base my-4 text-neutral-800 dark:text-neutral-200">
+                {talent.job_title}
+              </h2>
+              <div>
+                <Button
+                  type="button"
+                  onClick={() => {}}
+                  variant={"destructive"}
+                  size={"sm"}
+                >
+                  <Trash /> Delete
+                </Button>
+              </div>
             </div>
-          </div>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="email">Budget Allocation</Label>
-            <div className="flex flex-row gap-2">
-              <span className="self-center text-sm">$</span>
-              <Input
-                id="email"
-                name="email"
-                type="number"
-                showAnimation={false}
-                className="inline max-w-[200px]"
-                min={0}
-              />
-            </div>
-          </LabelInputContainer>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="text">Scope of work</Label>
-            <Textarea
-              placeholder="Scope of work for this position..."
-              rows={6}
-              className="flex w-full border bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="email">Budget Allocation</Label>
+              <div className="flex flex-row gap-2">
+                <span className="self-center text-sm">$</span>
+                <Input
+                  id="email"
+                  name="email"
+                  type="number"
+                  showAnimation={false}
+                  className="inline max-w-[200px]"
+                  min={0}
+                  value={talent.budget_allocation}
+                />
+              </div>
+            </LabelInputContainer>
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="text">Scope of work</Label>
+              <Textarea
+                placeholder="Scope of work for this position..."
+                rows={3}
+                className="flex w-full border bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
           file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
           focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
            disabled:cursor-not-allowed disabled:opacity-50
            dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
            "
-            />
-          </LabelInputContainer>
-        </section>
-        {/* /Talent */}
-        {/* Talent */}
-        <section className="border px-4 rounded-md my-4">
-          <div className="flex flex-row items-baseline justify-between">
-            <h2 className="font-semibold text-base my-4 text-neutral-800 dark:text-neutral-200">
-              Senior Backend Engineer
-            </h2>
-            <div>
-              <Button
-                type="button"
-                onClick={() => {}}
-                variant={"destructive"}
-                size={"sm"}
-              >
-                <Trash /> Delete
-              </Button>
-            </div>
-          </div>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="email">Budget Allocation</Label>
-            <div className="flex flex-row gap-2">
-              <span className="self-center text-sm">$</span>
-              <Input
-                id="email"
-                name="email"
-                type="number"
-                showAnimation={false}
-                className="inline max-w-[200px]"
-                min={0}
+                value={talent.scope_of_work}
               />
-            </div>
-          </LabelInputContainer>
-          <LabelInputContainer className="mb-4">
-            <Label htmlFor="text">Scope of work</Label>
-            <Textarea
-              placeholder="Scope of work for this position..."
-              rows={6}
-              className="flex w-full border bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
-          file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
-          focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
-           disabled:cursor-not-allowed disabled:opacity-50
-           dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
-           "
-            />
-          </LabelInputContainer>
-        </section>
-        {/* /Talent */}
+            </LabelInputContainer>
+          </section>
+        ))}
 
         <button
           className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] my-8"
