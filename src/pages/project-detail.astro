@@ -15,9 +15,9 @@ import {
 
 <Layout title="Project Detail">
   <header class="flex flex-col mb-4 border-b md:border-b-0 xl:mt-8">
-    <div class="w-full xl:grid xl:grid-cols-3 xl:gap-12 xl:container mx-auto">
+    <div class="w-full xl:grid xl:grid-cols-12 xl:gap-12 xl:container mx-auto">
       <!-- Project thumbnail -->
-      <div class="order-first col-span-2 mb-4">
+      <div class="col-span-8 mb-4">
         <AspectRatio ratio={16 / 9}>
           <img
             src={'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
@@ -27,7 +27,7 @@ import {
         </AspectRatio>
       </div>
       <!-- Project thumbnail -->
-      <div>
+      <div class="order-first col-span-4">
         <!-- Description -->
         <section
           class="w-full max-w-sm px-2 sm:px-0 sm:max-w-2xl xl:container mx-auto mb-6 col-span-1"
@@ -35,7 +35,7 @@ import {
           <h1 class="text-2xl xl:text-3xl font-bold mb-5 mt-2.5">
             Inisiatif Pendidikan Berkelanjutan 2024
           </h1>
-          <p>
+          <p class="leading-relaxed">
             Proyek ini bertujuan untuk meningkatkan akses dan kualitas
             pendidikan di daerah terpencil melalui pengembangan kurikulum
             berbasis teknologi dan pelatihan guru. Fokus utama adalah pada
