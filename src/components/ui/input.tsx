@@ -5,22 +5,41 @@ import { cn } from "@/lib/utils"
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion"
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  showAnimation?: boolean
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, showAnimation = true, ...props }, ref) => {
     const radius = 100 // change this to increase the radius of the hover effect
     const [visible, setVisible] = React.useState(false)
+    const [isAnimationEnabled, setIsAnimationEnabled] =
+      React.useState(showAnimation)
 
     let mouseX = useMotionValue(0)
     let mouseY = useMotionValue(0)
 
     function handleMouseMove({ currentTarget, clientX, clientY }: any) {
+      if (!isAnimationEnabled) return
       let { left, top } = currentTarget.getBoundingClientRect()
 
       mouseX.set(clientX - left)
       mouseY.set(clientY - top)
     }
+
+    function handleMouseEnter() {
+      if (!isAnimationEnabled) return
+      setVisible(true)
+    }
+
+    function handleMouseLeave() {
+      if (!isAnimationEnabled) return
+      setVisible(false)
+      // Reset mouse position when leaving
+      mouseX.set(0)
+      mouseY.set(0)
+    }
+
     return (
       <motion.div
         style={{
@@ -33,8 +52,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       `,
         }}
         onMouseMove={handleMouseMove}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className="p-[2px] rounded-lg transition duration-300 group/input"
       >
         <input
