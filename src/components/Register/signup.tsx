@@ -19,12 +19,13 @@ export default function SignUp() {
   const apiUrl = import.meta.env.API_URL
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-md p-4 md:p-8 shadow-input bg-white dark:bg-black">
+    <div className="max-w-lg w-full mx-auto rounded-none md:rounded-md p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Welcome
       </h2>
-      <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-        Join IdeaGo - Where great ideas meet great opportunities
+      <p className="text-neutral-600 text-sm mt-2 dark:text-neutral-300">
+        <span className="font-bold">Join IdeaGo</span> - Where great ideas meet
+        great opportunities
       </p>
 
       <form
@@ -80,7 +81,7 @@ export default function SignUp() {
             type="password"
           />
         </LabelInputContainer>
-        <LabelInputContainer className="mb-8">
+        <LabelInputContainer className="mb-4">
           <Label htmlFor="confirmpassword">Confirm Password</Label>
           <Input
             id="confirmpassword"
