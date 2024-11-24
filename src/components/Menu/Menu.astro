@@ -1,6 +1,6 @@
 ---
 import { NavigationDrawer } from '@/components/NavigationDrawer';
-import { Button } from '@/components/ui/button';
+import DropMenu from '@/components/DropMenu';
 
 interface DataMenu {
   name: string;
@@ -11,9 +11,10 @@ interface Props {
   data: DataMenu[];
   logo?: string;
   className?: string;
+  isLoggedIn?: boolean;
 }
 
-const { data, logo, className } = Astro.props;
+const { data, logo, className, isLoggedIn = false } = Astro.props;
 ---
 
 <section class=`${className} border-b`>
@@ -21,7 +22,7 @@ const { data, logo, className } = Astro.props;
     class="w-full max-w-2xl px-2 sm:px-0 xl:container mx-auto flex py-2 flex-row gap-5 justify-between items-center"
   >
     <div class="block sm:hidden">
-      <NavigationDrawer dataMenu={data} client:load />
+      <NavigationDrawer dataMenu={data} isLoggedIn={isLoggedIn} client:load />
     </div>
     <div class="flex flex-row gap-5 justify-center items-center">
       <a href="/">
@@ -32,7 +33,9 @@ const { data, logo, className } = Astro.props;
       {logo && <img src={logo} alt="IdeaGo" />}
     </div>
     <div class="w-[50px] sm:hidden"></div>
-    <div class="gap-3 hidden md:flex flex-row">
+    <div
+      class={`gap-3 hidden md:flex flex-row ${isLoggedIn ? 'md:hidden' : ''}`}
+    >
       <a
         class="py-2 px-4 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
         href="/register">Register</a
@@ -42,6 +45,9 @@ const { data, logo, className } = Astro.props;
         class="py-2 px-4 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
         href="/login">Login</a
       >
+    </div>
+    <div class={`hidden ${isLoggedIn ? 'md:flex' : 'md:hidden'}`}>
+      <DropMenu client:load />
     </div>
   </div>
 </section>

@@ -1,5 +1,8 @@
 ---
+import Layout from '@/layouts/Layout.astro';
 import Result from '@/components/ClientIdea/Result.astro';
 ---
 
-<Result />
+<Layout title="Idea Result" isLoggedIn={true}>
+  <Result />
+</Layout>
