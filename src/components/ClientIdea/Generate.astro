@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 ---
 
-<main class="w-full container mx-auto h-[calc(100svh-100px)]">
+<main class="w-full px-6 container mx-auto h-[calc(100svh-100px)]">
   <div class="h-full flex flex-col justify-center pb-4 max-w-5xl mx-auto">
     <h1 class="mx-auto mb-6 text-3xl font-semibold">
       <TextGenerateEffect
@@ -18,11 +18,14 @@ import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
         placeholder="Type your business idea or industry here..."
         rows={2}
         className="bg-accent resize-none rounded-xl placeholder:text-base"
-        autoFocus
       />
-      <a href="/client/result" class="self-end relative top-0">
+      <a
+        href="/client/result"
+        class="self-end relative top-0"
+        aria-label="Send the idea to AI"
+      >
         <Button variant="outline" size="icon">
-          <SendHorizontal className="size-8" />
+          <SendHorizontal className="size-8" xlinkTitle="" />
         </Button>
       </a>
     </div>
