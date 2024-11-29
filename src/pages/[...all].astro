@@ -1,0 +1,21 @@
+---
+import Layout from '@/components/ui/layouts/main-layout.astro';
+import { App } from '@/libs/entry-point/app';
+import { ROUTE_URL } from '@/entities/constant';
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (() => [
+  { params: { all: ROUTE_URL.ROOT } },
+  { params: { all: ROUTE_URL.AUTH.LOGIN } },
+  { params: { all: ROUTE_URL.AUTH.REGISTER } },
+  { params: { all: ROUTE_URL.GENERATE.ROOT } },
+  { params: { all: ROUTE_URL.GENERATE.RESULT } },
+  { params: { all: ROUTE_URL.PROJECTS.ROOT } },
+  { params: { all: ROUTE_URL.PROJECTS.DETAIL } },
+]) satisfies GetStaticPaths;
+
+---
+
+<Layout>
+  <App client:only="react" />
+</Layout>
